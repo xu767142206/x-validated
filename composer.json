@@ -1,0 +1,41 @@
+{
+    "name": "xu767142206/x-validated",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "php",
+        "hyperf",
+        "validated"
+    ],
+    "description": "Request Data Validated For Hyperf",
+    "autoload": {
+        "psr-4": {
+            "XValidated\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "HyperfTest\\": "tests"
+        }
+    },
+    "require": {
+        "php": ">=8.0",
+        "ext-swoole": ">=4.5",
+        "hyperf/validation": "^3.0.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "phpstan/phpstan": "^0.12",
+        "hyperf/testing": "3.0.*",
+        "swoole/ide-helper": "^4.5"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "scripts": {
+        "test": "co-phpunit -c phpunit.xml --colors=always",
+        "analyze": "phpstan analyse --memory-limit 300M -l 0 ./src",
+        "cs-fix": "php-cs-fixer fix $1"
+    }
+}
