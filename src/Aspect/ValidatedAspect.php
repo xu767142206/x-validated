@@ -31,7 +31,6 @@ class ValidatedAspect extends AbstractAspect
             if ($argument instanceof ValidatedData) {
 
                 [$rules, $messages] = $argument->getRule();
-
                 $container = \Hyperf\Utils\ApplicationContext::getContainer();
 
                 $request = $container->get(RequestInterface::class);

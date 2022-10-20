@@ -25,8 +25,8 @@ abstract class ValidatedData implements Arrayable
 
     public function __construct()
     {
-        self::$rule = $this->initRule();
-        self::$bindMap = $this->initBindMap();
+        self::$rule[static::class] = $this->initRule();
+        self::$bindMap[static::class] = $this->initBindMap();
     }
 
     /**
@@ -34,7 +34,15 @@ abstract class ValidatedData implements Arrayable
      */
     public function getRule(): array
     {
-        return self::$rule;
+        return self::$rule[static::class];
+    }
+
+    /**
+     * @return array
+     */
+    public static function getBindMap(): array
+    {
+        return self::$bindMap[static::class];
     }
 
 
@@ -104,12 +112,12 @@ abstract class ValidatedData implements Arrayable
     {
         $obj = clone $this;
         foreach ($data as $key => $val) {
-            if (!isset(self::$bindMap[$key])) continue;
+            if (!isset(static::getBindMap()[$key])) continue;
 
             /** 验证type */
 
 
-            $obj->{self::$bindMap[$key]['name']} = $val;
+            $obj->{static::getBindMap()[$key]['name']} = $val;
 
         }
 
