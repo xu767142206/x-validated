@@ -4,10 +4,12 @@
 namespace XValidated\Annotation;
 
 use XValidated\RuleCollector;
-use Attribute;
 use Hyperf\Di\Annotation\AbstractAnnotation;
 
-#[Attribute(Attribute::TARGET_PROPERTY)]
+/**
+ * @Annotation
+ * @Target({"PROPERTY"})
+ */
 class Rule extends AbstractAnnotation
 {
     /**

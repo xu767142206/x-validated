@@ -1,7 +1,7 @@
 # x-validated
-简易版注解验证库 for Hyperf， 基于 hyperf/validation
->起因：一直眼馋springboot的validation库,正好php8也有了原生的注解,就想到了套娃的方式简易实现 后面有闲情了再想办法自己实现吧
 
+简易版注解验证库 for Hyperf， 基于 hyperf/validation
+> 正在支持7.0版本
 
 ## 安装
 
@@ -62,10 +62,14 @@ use XValidated\ValidatedData;
 
 class LoginDto extends ValidatedData
 {
-    #[Rule(values: ["required"])]
+    /**
+     * @Rule(values=["required"])
+     */
     public int $phone;
 
-    #[Rule(values: ["required"], alias: "pass_word", messages: ['required' => "密码不能为空"])]
+    /**
+     * @Rule(values=["required"],alias="pass_word",messages=['required' => "密码不能为空"])
+     */
     public string $password;
 }
 ```
@@ -81,11 +85,15 @@ use Hyperf\HttpServer\Annotation\AutoController;
 use Hyperf\HttpServer\Annotation\RequestMapping;
 use Hyperf\HttpServer\Contract\RequestInterface;
 
-#[AutoController]
+/**
+ * @AutoController()
+*/
 class IndexController extends AbstractController
 {
-    #[RequestMapping(path: "index", methods: "get,post")]
-    #[Validated]
+     /**
+     * @RequestMapping(path="index", methods="get,post")
+     * @Validated
+     */
     public function index(RequestInterface $request, LoginDto $loginDto)
     {
         var_dump($loginDto->toArray());
@@ -95,7 +103,9 @@ class IndexController extends AbstractController
     }
 }
 ```
+
 接着可以快乐的写代码了
+
 ## License
 
 MIT
