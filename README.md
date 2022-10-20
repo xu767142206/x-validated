@@ -6,7 +6,7 @@
 ## 安装
 
 ~~~shell script
-composer require xu767142206/hyperf-easywechat
+composer require xu767142206/x-validated
 ~~~
 
 ## 配置
