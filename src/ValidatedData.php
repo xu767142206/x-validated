@@ -51,7 +51,7 @@ abstract class ValidatedData implements Arrayable
         $rulus = [];
         $messages = [];
         $arrayAccess = RuleCollector::getClassPropertys(static::class) ?? [];
-        var_dump(config("annotations"));
+        
         foreach ($arrayAccess as $name => $access) {
 
             $type = match ($access['type']) {
