@@ -11,31 +11,7 @@ composer require xu767142206/x-validated
 
 ## 配置
 
-1. config/autoload/annotations.php
-
-```php
-return [
-    'scan' => [
-        //...
-        'collectors' => [
-            XValidated\RuleCollector::class,
-        ],
-    ]
-
-];
-```
-
-2. config/autoload/aspects.php
-
-```php
-return [
-    //....
-    \XValidated\Aspect\ValidatedAspect::class
-    //....
-];
-```
-
-3.config/autoload/exceptions.php
+1.config/autoload/exceptions.php 也可以自己实现ValidationException的处理
 
 ```php
 return [
